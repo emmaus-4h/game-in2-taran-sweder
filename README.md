@@ -6,7 +6,26 @@ Gemaakt door:
 - *Taran Sanchit*
 
 ## Mijn planning
-
+1. 1. beginscherm
+   2.vliegtuig
+   3.bewegen vliegtuigvliegtuig bewgen beperken
+   4.alines maken
+   5.alien bewegen
+   6.vliegtuigs botsen
+   7.kogel makenkogels schieten
+   8.kogels detecteren
+   9.schietenlevel1
+   10.coins
+   11.level 2
+   12.bonus level
+  13.hoofd menu
+  14.soorten ailiens
+  15.level 3
+  16.bossfight
+  17.powerups
+  18.levl 4
+ 19.levelselector
+ 20.achtergrond
 Basis: uitleg, spelen, afgaan en punten
 - [x] maak index.html, style.css en script.js met canvas
 - [ ] teken speler
