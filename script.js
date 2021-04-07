@@ -22,8 +22,8 @@ const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = SPELEN;
 
-var spelerX = 200; // x-positie van speler
-var spelerY = 100; // y-positie van speler
+var schipX = 200; // x-positie van speler
+var schipY = 100; // y-positie van speler
 
 var kogelX = 0;    // x-positie van kogel
 var kogelY = 0;    // y-positie van kogel
@@ -46,7 +46,7 @@ var score = 0; // aantal behaalde punten
  * Tekent het speelveld
  */
 var tekenVeld = function () {
-  fill("purple");
+  fill("red");
   rect(20, 20, width - 2 * 20, height - 2 * 20);
 };
 
@@ -56,7 +56,7 @@ var tekenVeld = function () {
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
-var tekenVijand = function(x, y) {
+var tekenAlien = function(x, y) {
     
 
 };
@@ -78,7 +78,7 @@ var tekenKogel = function(x, y) {
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
-var tekenSpeler = function(x, y) {
+var tekenSchip = function(x, y) {
   fill("white");
   ellipse(x, y, 50, 50);
 };
@@ -87,7 +87,7 @@ var tekenSpeler = function(x, y) {
 /**
  * Updatet globale variabelen met positie van vijand of tegenspeler
  */
-var beweegVijand = function() {
+var beweegAlien = function() {
     
 };
 
@@ -150,7 +150,7 @@ function setup() {
   createCanvas(1280, 720);
 
   // Kleur de achtergrond blauw, zodat je het kunt zien
-  background('blue');
+  background('white');
 }
 
 
@@ -162,24 +162,24 @@ function setup() {
 function draw() {
   switch (spelStatus) {
     case SPELEN:
-      beweegVijand();
+      beweegAlien();
       beweegKogel();
-      beweegSpeler();
+      beweegSchip();
       
-      if (checkVijandGeraakt()) {
+      if (checkAlienGeraakt()) {
         // punten erbij
         // nieuwe vijand maken
       }
       
-      if (checkSpelerGeraakt()) {
+      if (checkSchipGeraakt()) {
         // leven eraf of gezondheid verlagen
         // eventueel: nieuwe speler maken
       }
 
       tekenVeld();
-      tekenVijand(vijandX, vijandY);
+      tekenalien(alienX, alienY);
       tekenKogel(kogelX, kogelY);
-      tekenSpeler(spelerX, spelerY);
+      tekenSpeler(schipX, schipY);
 
       if (checkGameOver()) {
         spelStatus = GAMEOVER;
