@@ -22,14 +22,14 @@ const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = SPELEN;
 
-var schipX = 200; // x-positie van speler
-var schipY = 100; // y-positie van speler
+var spelerX = 50; // x-positie van speler
+var spelerY = 600; // y-positie van speler
 
 var kogelX = 0;    // x-positie van kogel
 var kogelY = 0;    // y-positie van kogel
 
-var vijandX = 0;   // x-positie van vijand
-var vijandY = 0;   // y-positie van vijand
+var vijandX = 1250;   // x-positie van vijand
+var vijandY = 100;   // y-positie van vijand
 
 var score = 0; // aantal behaalde punten
 
@@ -46,7 +46,7 @@ var score = 0; // aantal behaalde punten
  * Tekent het speelveld
  */
 var tekenVeld = function () {
-  fill("red");
+  fill("white");
   rect(20, 20, width - 2 * 20, height - 2 * 20);
 };
 
@@ -56,11 +56,10 @@ var tekenVeld = function () {
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
-var tekenAlien = function(x, y) {
-    
+var tekenVijand = function(x, y) {
+ 
 
 };
-
 
 /**
  * Tekent de kogel of de bal
@@ -69,25 +68,24 @@ var tekenAlien = function(x, y) {
  */
 var tekenKogel = function(x, y) {
 
-
 };
-
 
 /**
  * Tekent de speler
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
-var tekenSchip = function(x, y) {
-  fill("white");
+var tekenSpeler = function(x, y) {
+  fill("brown");
   ellipse(x, y, 50, 50);
+ 
 };
 
 
 /**
  * Updatet globale variabelen met positie van vijand of tegenspeler
  */
-var beweegAlien = function() {
+var beweegVijand = function() {
     
 };
 
@@ -95,9 +93,11 @@ var beweegAlien = function() {
 /**
  * Updatet globale variabelen met positie van kogel of bal
  */
-var beweegKogel = function() {
+var beweegKogel = function() { }
 
-};
+ // position of the ball
+
+// how far the ball moves every time
 
 
 /**
@@ -105,6 +105,21 @@ var beweegKogel = function() {
  * Updatet globale variabele spelerX en spelerY
  */
 var beweegSpeler = function() {
+  if (keyIsDown(65)) {
+    spelerX = spelerX - 5;
+  }
+  if (keyIsDown(68)) {
+    spelerX = spelerX + 5;
+    }
+    
+
+ if (spelerX <50) {
+      spelerX = 50;}
+    
+     
+    if (spelerX > 1230) {
+      spelerX = 1230;}
+    
 
 };
 
@@ -150,7 +165,7 @@ function setup() {
   createCanvas(1280, 720);
 
   // Kleur de achtergrond blauw, zodat je het kunt zien
-  background('white');
+  background("orange");
 }
 
 
@@ -162,24 +177,26 @@ function setup() {
 function draw() {
   switch (spelStatus) {
     case SPELEN:
-      beweegAlien();
-      beweegKogel();
-      beweegSchip();
+      beweegVijand();
       
-      if (checkAlienGeraakt()) {
+      beweegKogel();
+    
+      beweegSpeler();
+      
+      if (checkVijandGeraakt()) {
         // punten erbij
         // nieuwe vijand maken
       }
       
-      if (checkSchipGeraakt()) {
+      if (checkSpelerGeraakt()) {
         // leven eraf of gezondheid verlagen
         // eventueel: nieuwe speler maken
       }
 
       tekenVeld();
-      tekenalien(alienX, alienY);
+      tekenVijand(vijandX, vijandY);
       tekenKogel(kogelX, kogelY);
-      tekenSpeler(schipX, schipY);
+      tekenSpeler(spelerX, spelerY);
 
       if (checkGameOver()) {
         spelStatus = GAMEOVER;
