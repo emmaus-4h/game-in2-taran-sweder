@@ -178,11 +178,11 @@ var tekenVeiand = function(x, y) {
     
 //rij 1
 fill("pink")
-rect(x+20,y+20, 50,50)
-rect(x+1,y, 50,50)
-rect(x+15,y, 50,50)
-rect(x+20,y, 50,50)
-rect(x+30,y, 50,50)
+rect(x+20,y+20, 5,5)
+rect(x+1,y, 5,5)
+rect(x+15,y, 5,5)
+rect(x+20,y, 5,5)
+rect(x+30,y, 5,5)
 
 //rij 2
 rect(x+5,y+5, 5,5)
