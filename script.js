@@ -22,14 +22,24 @@ const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = SPELEN;
 
-var spelerX = 50; // x-positie van speler
-var spelerY = 600; // y-positie van speler
+var spelerX = 800; // x-positie van speler
+var spelerY = 580; // y-positie van speler
 
 var kogelX = 0;    // x-positie van kogel
 var kogelY = 0;    // y-positie van kogel
 
-var vijandX = 1250;   // x-positie van vijand
-var vijandY = 100;   // y-positie van vijand
+var vijandX = 350;   // x-positie van vijand
+var vijandY = 350;   // y-positie van vijand
+
+var dijandX = 500;   // x-positie van vijand
+var dijandY = 400;   // y-positie van vijand
+
+var veiandX = 850;   // x-positie van vijand
+var veiandY = 200;   // y-positie van vijand
+
+var gijandX = 80;   // x-positie van vijand
+var gijandY = 500;   // y-positie van vijand
+
 
 var score = 0; // aantal behaalde punten
 
@@ -46,7 +56,7 @@ var score = 0; // aantal behaalde punten
  * Tekent het speelveld
  */
 var tekenVeld = function () {
-  fill("white");
+  fill("black");
   rect(20, 20, width - 2 * 20, height - 2 * 20);
 };
 
@@ -56,7 +66,224 @@ var tekenVeld = function () {
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
+
 var tekenVijand = function(x, y) {
+    
+//rij 1
+fill("orange")
+rect(x,y, 5,5)
+rect(x+10,y, 5,5)
+rect(x+15,y, 5,5)
+rect(x+20,y, 5,5)
+rect(x+30,y, 5,5)
+
+//rij 2
+rect(x+5,y+5, 5,5)
+rect(x+25,y+5, 5,5)
+rect(x+15,y+5, 5,5)
+
+//rij 3
+rect(x+10,y+10, 5,5)
+rect(x+20,y+10, 5,5)
+
+//rij 4
+rect(x+10,y+15, 5,5)
+rect(x+5,y+15, 5,5)
+rect(x+15,y+15, 5,5)
+rect(x+20,y+15, 5,5)
+rect(x+25,y+15, 5,5)
+
+//rij 5
+rect(x,y+20, 5,5)
+rect(x+15,y+20, 5,5)
+rect(x+30,y+20, 5,5)
+
+//rij 6
+rect(x,y+25, 5,5)
+rect(x+10,y+25, 5,5)
+rect(x+20,y+25, 5,5)
+rect(x+30,y+25, 5,5)
+
+//rij 7
+rect(x+10,y+30, 5,5)
+rect(x+20,y+30, 5,5)
+
+//rij 8
+rect(x+10,y+35, 5,5)
+rect(x+20,y+35, 5,5)
+
+fill("white")
+rect(x+10,y+5, 5,5)
+rect(x+20,y+5, 5,5)
+  
+fill("red") 
+rect(x+15,y+10, 5,5)
+};
+ 
+
+var tekenDijand = function(x, y) {
+//rij 1
+fill("red")
+rect(x,y, 5,5)
+rect(x+10,y, 5,5)
+rect(x+15,y, 5,5)
+rect(x+20,y, 5,5)
+rect(x+30,y, 5,5)
+
+//rij 2
+rect(x+5,y+5, 5,5)
+rect(x+25,y+5, 5,5)
+rect(x+15,y+5, 5,5)
+
+//rij 3
+rect(x+10,y+10, 5,5)
+rect(x+20,y+10, 5,5)
+
+//rij 4
+rect(x+10,y+15, 5,5)
+rect(x+5,y+15, 5,5)
+rect(x+15,y+15, 5,5)
+rect(x+20,y+15, 5,5)
+rect(x+25,y+15, 5,5)
+
+//rij 5
+rect(x,y+20, 5,5)
+rect(x+15,y+20, 5,5)
+rect(x+30,y+20, 5,5)
+
+//rij 6
+rect(x,y+25, 5,5)
+rect(x+10,y+25, 5,5)
+rect(x+20,y+25, 5,5)
+rect(x+30,y+25, 5,5)
+
+//rij 7
+rect(x+10,y+30, 5,5)
+rect(x+20,y+30, 5,5)
+
+//rij 8
+rect(x+10,y+35, 5,5)
+rect(x+20,y+35, 5,5)
+
+fill("white")
+rect(x+10,y+5, 5,5)
+rect(x+20,y+5, 5,5)
+  
+fill("red") 
+rect(x+15,y+10, 5,5)
+};
+ 
+
+var tekenVeiand = function(x, y) {
+    
+//rij 1
+fill("pink")
+rect(x+20,y+20, 50,50)
+rect(x+1,y, 50,50)
+rect(x+15,y, 50,50)
+rect(x+20,y, 50,50)
+rect(x+30,y, 50,50)
+
+//rij 2
+rect(x+5,y+5, 5,5)
+rect(x+25,y+5, 5,5)
+rect(x+15,y+5, 5,5)
+
+//rij 3
+rect(x+10,y+10, 5,5)
+rect(x+20,y+10, 5,5)
+
+//rij 4
+rect(x+10,y+15, 5,5)
+rect(x+5,y+15, 5,5)
+rect(x+15,y+15, 5,5)
+rect(x+20,y+15, 5,5)
+rect(x+25,y+15, 5,5)
+
+//rij 5
+rect(x,y+20, 5,5)
+rect(x+15,y+20, 5,5)
+rect(x+30,y+20, 5,5)
+
+//rij 6
+rect(x,y+25, 5,5)
+rect(x+10,y+25, 5,5)
+rect(x+20,y+25, 5,5)
+rect(x+30,y+25, 5,5)
+
+//rij 7
+rect(x+10,y+30, 5,5)
+rect(x+20,y+30, 5,5)
+
+//rij 8
+rect(x+10,y+35, 5,5)
+rect(x+20,y+35, 5,5)
+
+fill("white")
+rect(x+10,y+5, 5,5)
+rect(x+20,y+5, 5,5)
+  
+fill("red") 
+rect(x+15,y+10, 5,5)
+};
+ 
+var tekenGijand = function(x, y) {
+//rij 1
+fill("green")
+rect(x,y, 5,5)
+rect(x+10,y, 5,5)
+rect(x+15,y, 5,5)
+rect(x+20,y, 5,5)
+rect(x+30,y, 5,5)
+
+//rij 2
+rect(x+5,y+5, 5,5)
+rect(x+25,y+5, 5,5)
+rect(x+15,y+5, 5,5)
+
+//rij 3
+rect(x+10,y+10, 5,5)
+rect(x+20,y+10, 5,5)
+
+//rij 4
+rect(x+10,y+15, 5,5)
+rect(x+5,y+15, 5,5)
+rect(x+15,y+15, 5,5)
+rect(x+20,y+15, 5,5)
+rect(x+25,y+15, 5,5)
+
+//rij 5
+rect(x,y+20, 5,5)
+rect(x+15,y+20, 5,5)
+rect(x+30,y+20, 5,5)
+
+//rij 6
+rect(x,y+25, 5,5)
+rect(x+10,y+25, 5,5)
+rect(x+20,y+25, 5,5)
+rect(x+30,y+25, 5,5)
+
+//rij 7
+rect(x+10,y+30, 5,5)
+rect(x+20,y+30, 5,5)
+
+//rij 8
+rect(x+10,y+35, 5,5)
+rect(x+20,y+35, 5,5)
+
+fill("white")
+rect(x+10,y+5, 5,5)
+rect(x+20,y+5, 5,5)
+  
+fill("red") 
+rect(x+15,y+10, 5,5)
+};
+
+ 
+
+
+
+/**
  
 
 };
@@ -67,6 +294,7 @@ var tekenVijand = function(x, y) {
  * @param {number} y y-coördinaat
  */
 var tekenKogel = function(x, y) {
+  
 
 };
 
@@ -76,8 +304,59 @@ var tekenKogel = function(x, y) {
  * @param {number} y y-coördinaat
  */
 var tekenSpeler = function(x, y) {
-  fill("brown");
-  ellipse(x, y, 50, 50);
+  
+//rij 1
+fill("yellow")
+rect(x,y, 5,5)
+rect(x+10,y, 5,5)
+rect(x+15,y, 5,5)
+rect(x+20,y, 5,5)
+rect(x+30,y, 5,5)
+
+//rij 2
+rect(x+5,y+5, 5,5)
+rect(x+25,y+5, 5,5)
+rect(x+15,y+5, 5,5)
+
+//rij 3
+rect(x+10,y+10, 5,5)
+rect(x+20,y+10, 5,5)
+
+//rij 4
+rect(x+10,y+15, 5,5)
+rect(x+5,y+15, 5,5)
+rect(x+15,y+15, 5,5)
+rect(x+20,y+15, 5,5)
+rect(x+25,y+15, 5,5)
+
+//rij 5
+rect(x,y+20, 5,5)
+rect(x+15,y+20, 5,5)
+rect(x+30,y+20, 5,5)
+
+//rij 6
+rect(x,y+25, 5,5)
+rect(x+10,y+25, 5,5)
+rect(x+20,y+25, 5,5)
+rect(x+30,y+25, 5,5)
+
+//rij 7
+rect(x+10,y+30, 5,5)
+rect(x+20,y+30, 5,5)
+
+//rij 8
+rect(x+10,y+35, 5,5)
+rect(x+20,y+35, 5,5)
+
+fill("green")
+rect(x+10,y+5, 5,5)
+rect(x+20,y+5, 5,5)
+  
+fill("green") 
+rect(x+15,y+10, 5,5)
+
+
+
  
 };
 
@@ -86,8 +365,29 @@ var tekenSpeler = function(x, y) {
  * Updatet globale variabelen met positie van vijand of tegenspeler
  */
 var beweegVijand = function() {
-    
-};
+
+vijandX = vijandX + random(10) + random(-1)
+
+};    
+
+var beweegDijand = function() {
+ 
+dijandX = dijandX + random(10) + random(-1)
+
+}; 
+
+var beweegVeiand = function() {
+ 
+veiandX = veiandX + random(10) + random(-1)
+
+}; 
+
+
+var beweegGijand = function() {
+ 
+gijandX = gijandX + random(10) + random(-1)
+
+}; 
 
 
 /**
@@ -117,8 +417,8 @@ var beweegSpeler = function() {
       spelerX = 50;}
     
      
-    if (spelerX > 1230) {
-      spelerX = 1230;}
+    if (spelerX > 1220) {
+      spelerX = 1220;}
     
 
 };
@@ -165,7 +465,7 @@ function setup() {
   createCanvas(1280, 720);
 
   // Kleur de achtergrond blauw, zodat je het kunt zien
-  background("orange");
+  background("white");
 }
 
 
@@ -177,10 +477,11 @@ function setup() {
 function draw() {
   switch (spelStatus) {
     case SPELEN:
-      beweegVijand();
       
+       beweegVijand();
+      beweegDijand();
+      beweegVeiand(); beweegGijand();
       beweegKogel();
-    
       beweegSpeler();
       
       if (checkVijandGeraakt()) {
@@ -194,10 +495,12 @@ function draw() {
       }
 
       tekenVeld();
-      tekenVijand(vijandX, vijandY);
+     tekenVijand(vijandX, vijandY);
+      tekenDijand(dijandX, dijandY);
+      tekenVeiand(veiandX, veiandY);
+      tekenGijand(gijandX, gijandY);
       tekenKogel(kogelX, kogelY);
       tekenSpeler(spelerX, spelerY);
-
       if (checkGameOver()) {
         spelStatus = GAMEOVER;
       }
