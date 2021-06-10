@@ -38,9 +38,23 @@ var veiandX = 850;   // x-positie van vijand
 var veiandY = 200;   // y-positie van vijand
 
 var gijandX = 80;   // x-positie van vijand
-var gijandY = 500;   // y-positie van vijand
+var gijandY = 500;  // y-positie van vijand
+             
+var monster1X=550; // x-positie van vijand
+var monster1Y=350 // y-positie van vijand
 
+var monster2X=500; // x-positie van vijand
+var monster2Y=400 // y-positie van vijand
 
+var monster3X=850; // x-positie van vijand
+var monster3Y=250 // y-positie van vijand
+
+var monster4X=80; // x-positie van vijand
+var monster4Y=550 // y-positie van vijand
+
+var monster5X=80; // x-positie van vijand
+var monster5Y=570  // y-positie van vijand
+                  
 var score = 0; // aantal behaalde punten
 
 
@@ -279,6 +293,531 @@ fill("red")
 rect(x+15,y+10, 5,5)
 };
 
+ var tekenVijand = function(x, y) {
+    
+//rij 1
+fill("orange")
+rect(x,y, 5,5)
+rect(x+10,y, 5,5)
+rect(x+15,y, 5,5)
+rect(x+20,y, 5,5)
+rect(x+30,y, 5,5)
+
+//rij 2
+rect(x+5,y+5, 5,5)
+rect(x+25,y+5, 5,5)
+rect(x+15,y+5, 5,5)
+
+//rij 3
+rect(x+10,y+10, 5,5)
+rect(x+20,y+10, 5,5)
+
+//rij 4
+rect(x+10,y+15, 5,5)
+rect(x+5,y+15, 5,5)
+rect(x+15,y+15, 5,5)
+rect(x+20,y+15, 5,5)
+rect(x+25,y+15, 5,5)
+
+//rij 5
+rect(x,y+20, 5,5)
+rect(x+15,y+20, 5,5)
+rect(x+30,y+20, 5,5)
+
+//rij 6
+rect(x,y+25, 5,5)
+rect(x+10,y+25, 5,5)
+rect(x+20,y+25, 5,5)
+rect(x+30,y+25, 5,5)
+
+//rij 7
+rect(x+10,y+30, 5,5)
+rect(x+20,y+30, 5,5)
+
+//rij 8
+rect(x+10,y+35, 5,5)
+rect(x+20,y+35, 5,5)
+
+fill("white")
+rect(x+10,y+5, 5,5)
+rect(x+20,y+5, 5,5)
+  
+fill("red") 
+rect(x+15,y+10, 5,5)
+};
+ 
+
+var tekenDijand = function(x, y) {
+//rij 1
+fill("red")
+rect(x,y, 5,5)
+rect(x+10,y, 5,5)
+rect(x+15,y, 5,5)
+rect(x+20,y, 5,5)
+rect(x+30,y, 5,5)
+
+//rij 2
+rect(x+5,y+5, 5,5)
+rect(x+25,y+5, 5,5)
+rect(x+15,y+5, 5,5)
+
+//rij 3
+rect(x+10,y+10, 5,5)
+rect(x+20,y+10, 5,5)
+
+//rij 4
+rect(x+10,y+15, 5,5)
+rect(x+5,y+15, 5,5)
+rect(x+15,y+15, 5,5)
+rect(x+20,y+15, 5,5)
+rect(x+25,y+15, 5,5)
+
+//rij 5
+rect(x,y+20, 5,5)
+rect(x+15,y+20, 5,5)
+rect(x+30,y+20, 5,5)
+
+//rij 6
+rect(x,y+25, 5,5)
+rect(x+10,y+25, 5,5)
+rect(x+20,y+25, 5,5)
+rect(x+30,y+25, 5,5)
+
+//rij 7
+rect(x+10,y+30, 5,5)
+rect(x+20,y+30, 5,5)
+
+//rij 8
+rect(x+10,y+35, 5,5)
+rect(x+20,y+35, 5,5)
+
+fill("white")
+rect(x+10,y+5, 5,5)
+rect(x+20,y+5, 5,5)
+  
+fill("red") 
+rect(x+15,y+10, 5,5)
+};
+ var tekenVijand = function(x, y) {
+    
+//rij 1
+fill("orange")
+rect(x,y, 5,5)
+rect(x+10,y, 5,5)
+rect(x+15,y, 5,5)
+rect(x+20,y, 5,5)
+rect(x+30,y, 5,5)
+
+//rij 2
+rect(x+5,y+5, 5,5)
+rect(x+25,y+5, 5,5)
+rect(x+15,y+5, 5,5)
+
+//rij 3
+rect(x+10,y+10, 5,5)
+rect(x+20,y+10, 5,5)
+
+//rij 4
+rect(x+10,y+15, 5,5)
+rect(x+5,y+15, 5,5)
+rect(x+15,y+15, 5,5)
+rect(x+20,y+15, 5,5)
+rect(x+25,y+15, 5,5)
+
+//rij 5
+rect(x,y+20, 5,5)
+rect(x+15,y+20, 5,5)
+rect(x+30,y+20, 5,5)
+
+//rij 6
+rect(x,y+25, 5,5)
+rect(x+10,y+25, 5,5)
+rect(x+20,y+25, 5,5)
+rect(x+30,y+25, 5,5)
+
+//rij 7
+rect(x+10,y+30, 5,5)
+rect(x+20,y+30, 5,5)
+
+//rij 8
+rect(x+10,y+35, 5,5)
+rect(x+20,y+35, 5,5)
+
+fill("white")
+rect(x+10,y+5, 5,5)
+rect(x+20,y+5, 5,5)
+  
+fill("red") 
+rect(x+15,y+10, 5,5)
+};
+ 
+
+var tekenDijand = function(x, y) {
+//rij 1
+fill("red")
+rect(x,y, 5,5)
+rect(x+10,y, 5,5)
+rect(x+15,y, 5,5)
+rect(x+20,y, 5,5)
+rect(x+30,y, 5,5)
+
+//rij 2
+rect(x+5,y+5, 5,5)
+rect(x+25,y+5, 5,5)
+rect(x+15,y+5, 5,5)
+
+//rij 3
+rect(x+10,y+10, 5,5)
+rect(x+20,y+10, 5,5)
+
+//rij 4
+rect(x+10,y+15, 5,5)
+rect(x+5,y+15, 5,5)
+rect(x+15,y+15, 5,5)
+rect(x+20,y+15, 5,5)
+rect(x+25,y+15, 5,5)
+
+//rij 5
+rect(x,y+20, 5,5)
+rect(x+15,y+20, 5,5)
+rect(x+30,y+20, 5,5)
+
+//rij 6
+rect(x,y+25, 5,5)
+rect(x+10,y+25, 5,5)
+rect(x+20,y+25, 5,5)
+rect(x+30,y+25, 5,5)
+
+//rij 7
+rect(x+10,y+30, 5,5)
+rect(x+20,y+30, 5,5)
+
+//rij 8
+rect(x+10,y+35, 5,5)
+rect(x+20,y+35, 5,5)
+
+fill("white")
+rect(x+10,y+5, 5,5)
+rect(x+20,y+5, 5,5)
+  
+fill("red") 
+rect(x+15,y+10, 5,5)
+};
+ var tekenVijand = function(x, y) {
+    
+//rij 1
+fill("orange")
+rect(x,y, 5,5)
+rect(x+10,y, 5,5)
+rect(x+15,y, 5,5)
+rect(x+20,y, 5,5)
+rect(x+30,y, 5,5)
+
+//rij 2
+rect(x+5,y+5, 5,5)
+rect(x+25,y+5, 5,5)
+rect(x+15,y+5, 5,5)
+
+//rij 3
+rect(x+10,y+10, 5,5)
+rect(x+20,y+10, 5,5)
+
+//rij 4
+rect(x+10,y+15, 5,5)
+rect(x+5,y+15, 5,5)
+rect(x+15,y+15, 5,5)
+rect(x+20,y+15, 5,5)
+rect(x+25,y+15, 5,5)
+
+//rij 5
+rect(x,y+20, 5,5)
+rect(x+15,y+20, 5,5)
+rect(x+30,y+20, 5,5)
+
+//rij 6
+rect(x,y+25, 5,5)
+rect(x+10,y+25, 5,5)
+rect(x+20,y+25, 5,5)
+rect(x+30,y+25, 5,5)
+
+//rij 7
+rect(x+10,y+30, 5,5)
+rect(x+20,y+30, 5,5)
+
+//rij 8
+rect(x+10,y+35, 5,5)
+rect(x+20,y+35, 5,5)
+
+fill("white")
+rect(x+10,y+5, 5,5)
+rect(x+20,y+5, 5,5)
+  
+fill("red") 
+rect(x+15,y+10, 5,5)
+};
+ 
+
+var tekenMonster1 = function(x, y) {
+//rij 1
+fill("red")
+rect(x,y, 5,5)
+rect(x+10,y, 5,5)
+rect(x+15,y, 5,5)
+rect(x+20,y, 5,5)
+rect(x+30,y, 5,5)
+
+//rij 2
+rect(x+5,y+5, 5,5)
+rect(x+25,y+5, 5,5)
+rect(x+15,y+5, 5,5)
+
+//rij 3
+rect(x+10,y+10, 5,5)
+rect(x+20,y+10, 5,5)
+
+//rij 4
+rect(x+10,y+15, 5,5)
+rect(x+5,y+15, 5,5)
+rect(x+15,y+15, 5,5)
+rect(x+20,y+15, 5,5)
+rect(x+25,y+15, 5,5)
+
+//rij 5
+rect(x,y+20, 5,5)
+rect(x+15,y+20, 5,5)
+rect(x+30,y+20, 5,5)
+
+//rij 6
+rect(x,y+25, 5,5)
+rect(x+10,y+25, 5,5)
+rect(x+20,y+25, 5,5)
+rect(x+30,y+25, 5,5)
+
+//rij 7
+rect(x+10,y+30, 5,5)
+rect(x+20,y+30, 5,5)
+
+//rij 8
+rect(x+10,y+35, 5,5)
+rect(x+20,y+35, 5,5)
+
+fill("white")
+rect(x+10,y+5, 5,5)
+rect(x+20,y+5, 5,5)
+  
+fill("red") 
+rect(x+15,y+10, 5,5)
+};
+ var tekenMonster2= function(x, y) {
+    
+//rij 1
+fill("orange")
+rect(x,y, 5,5)
+rect(x+10,y, 5,5)
+rect(x+15,y, 5,5)
+rect(x+20,y, 5,5)
+rect(x+30,y, 5,5)
+
+//rij 2
+rect(x+5,y+5, 5,5)
+rect(x+25,y+5, 5,5)
+rect(x+15,y+5, 5,5)
+
+//rij 3
+rect(x+10,y+10, 5,5)
+rect(x+20,y+10, 5,5)
+
+//rij 4
+rect(x+10,y+15, 5,5)
+rect(x+5,y+15, 5,5)
+rect(x+15,y+15, 5,5)
+rect(x+20,y+15, 5,5)
+rect(x+25,y+15, 5,5)
+
+//rij 5
+rect(x,y+20, 5,5)
+rect(x+15,y+20, 5,5)
+rect(x+30,y+20, 5,5)
+
+//rij 6
+rect(x,y+25, 5,5)
+rect(x+10,y+25, 5,5)
+rect(x+20,y+25, 5,5)
+rect(x+30,y+25, 5,5)
+
+//rij 7
+rect(x+10,y+30, 5,5)
+rect(x+20,y+30, 5,5)
+
+//rij 8
+rect(x+10,y+35, 5,5)
+rect(x+20,y+35, 5,5)
+
+fill("white")
+rect(x+10,y+5, 5,5)
+rect(x+20,y+5, 5,5)
+  
+fill("red") 
+rect(x+15,y+10, 5,5)
+};
+ 
+
+var tekenMonster3 = function(x, y) {
+//rij 1
+fill("red")
+rect(x,y, 5,5)
+rect(x+10,y, 5,5)
+rect(x+15,y, 5,5)
+rect(x+20,y, 5,5)
+rect(x+30,y, 5,5)
+
+//rij 2
+rect(x+5,y+5, 5,5)
+rect(x+25,y+5, 5,5)
+rect(x+15,y+5, 5,5)
+
+//rij 3
+rect(x+10,y+10, 5,5)
+rect(x+20,y+10, 5,5)
+
+//rij 4
+rect(x+10,y+15, 5,5)
+rect(x+5,y+15, 5,5)
+rect(x+15,y+15, 5,5)
+rect(x+20,y+15, 5,5)
+rect(x+25,y+15, 5,5)
+
+//rij 5
+rect(x,y+20, 5,5)
+rect(x+15,y+20, 5,5)
+rect(x+30,y+20, 5,5)
+
+//rij 6
+rect(x,y+25, 5,5)
+rect(x+10,y+25, 5,5)
+rect(x+20,y+25, 5,5)
+rect(x+30,y+25, 5,5)
+
+//rij 7
+rect(x+10,y+30, 5,5)
+rect(x+20,y+30, 5,5)
+
+//rij 8
+rect(x+10,y+35, 5,5)
+rect(x+20,y+35, 5,5)
+
+fill("white")
+rect(x+10,y+5, 5,5)
+rect(x+20,y+5, 5,5)
+  
+fill("red") 
+rect(x+15,y+10, 5,5)
+};
+ var tekenMonster4 = function(x, y) {
+    
+//rij 1
+fill("orange")
+rect(x,y, 5,5)
+rect(x+10,y, 5,5)
+rect(x+15,y, 5,5)
+rect(x+20,y, 5,5)
+rect(x+30,y, 5,5)
+
+//rij 2
+rect(x+5,y+5, 5,5)
+rect(x+25,y+5, 5,5)
+rect(x+15,y+5, 5,5)
+
+//rij 3
+rect(x+10,y+10, 5,5)
+rect(x+20,y+10, 5,5)
+
+//rij 4
+rect(x+10,y+15, 5,5)
+rect(x+5,y+15, 5,5)
+rect(x+15,y+15, 5,5)
+rect(x+20,y+15, 5,5)
+rect(x+25,y+15, 5,5)
+
+//rij 5
+rect(x,y+20, 5,5)
+rect(x+15,y+20, 5,5)
+rect(x+30,y+20, 5,5)
+
+//rij 6
+rect(x,y+25, 5,5)
+rect(x+10,y+25, 5,5)
+rect(x+20,y+25, 5,5)
+rect(x+30,y+25, 5,5)
+
+//rij 7
+rect(x+10,y+30, 5,5)
+rect(x+20,y+30, 5,5)
+
+//rij 8
+rect(x+10,y+35, 5,5)
+rect(x+20,y+35, 5,5)
+
+fill("white")
+rect(x+10,y+5, 5,5)
+rect(x+20,y+5, 5,5)
+  
+fill("red") 
+rect(x+15,y+10, 5,5)
+};
+ 
+
+var tekenMonster5 = function(x, y) {
+//rij 1
+fill("red")
+rect(x,y, 5,5)
+rect(x+10,y, 5,5)
+rect(x+15,y, 5,5)
+rect(x+20,y, 5,5)
+rect(x+30,y, 5,5)
+
+//rij 2
+rect(x+5,y+5, 5,5)
+rect(x+25,y+5, 5,5)
+rect(x+15,y+5, 5,5)
+
+//rij 3
+rect(x+10,y+10, 5,5)
+rect(x+20,y+10, 5,5)
+
+//rij 4
+rect(x+10,y+15, 5,5)
+rect(x+5,y+15, 5,5)
+rect(x+15,y+15, 5,5)
+rect(x+20,y+15, 5,5)
+rect(x+25,y+15, 5,5)
+
+//rij 5
+rect(x,y+20, 5,5)
+rect(x+15,y+20, 5,5)
+rect(x+30,y+20, 5,5)
+
+//rij 6
+rect(x,y+25, 5,5)
+rect(x+10,y+25, 5,5)
+rect(x+20,y+25, 5,5)
+rect(x+30,y+25, 5,5)
+
+//rij 7
+rect(x+10,y+30, 5,5)
+rect(x+20,y+30, 5,5)
+
+//rij 8
+rect(x+10,y+35, 5,5)
+rect(x+20,y+35, 5,5)
+
+fill("white")
+rect(x+10,y+5, 5,5)
+rect(x+20,y+5, 5,5)
+  
+fill("red") 
+rect(x+15,y+10, 5,5)
+};
  
 
 
@@ -382,6 +921,36 @@ veiandX = veiandX + random(10) + random(-1)
 
 }; 
 
+
+var beweegGijand = function() {
+ 
+gijandX = gijandX + random(10) + random(-1)
+
+}; 
+
+
+var beweegGijand = function() {
+ 
+gijandX = gijandX + random(10) + random(-1)
+
+}; 
+
+var beweegGijand = function() {
+ 
+gijandX = gijandX + random(10) + random(-1)
+
+}; 
+
+var beweegGijand = function() {
+ 
+gijandX = gijandX + random(10) + random(-1)
+
+}; 
+var beweegMonster = function() {
+ 
+monsterX = gijandX + random(10) + random(-1)
+
+}; 
 
 var beweegGijand = function() {
  
@@ -499,8 +1068,23 @@ function draw() {
       tekenDijand(dijandX, dijandY);
       tekenVeiand(veiandX, veiandY);
       tekenGijand(gijandX, gijandY);
+ tekenMonster1(monster1X,monster1Y);
+ tekenMonster2(monster2X,monster2Y);
+tekenMonster3(monster3X,monster3Y);
+ tekenMonster4(monster4X,monster4Y);
+ tekenMonster5,(monster5X,monster5Y);
+
+
+
+
+
+
+
+
+
       tekenKogel(kogelX, kogelY);
       tekenSpeler(spelerX, spelerY);
+      
       if (checkGameOver()) {
         spelStatus = GAMEOVER;
       }
