@@ -41,7 +41,7 @@ var gijandX = 80;   // x-positie van vijand
 var gijandY = 500;  // y-positie van vijand
              
 var monster1X=550; // x-positie van vijand
-var monster1Y=350 // y-positie van vijand
+var monster1Y=400 // y-positie van vijand
 
 var monster2X=500; // x-positie van vijand
 var monster2Y=400 // y-positie van vijand
@@ -50,7 +50,7 @@ var monster3X=850; // x-positie van vijand
 var monster3Y=250 // y-positie van vijand
 
 var monster4X=80; // x-positie van vijand
-var monster4Y=550 // y-positie van vijand
+var monster4Y=300 // y-positie van vijand
 
 var monster5X=80; // x-positie van vijand
 var monster5Y=570  // y-positie van vijand
@@ -716,7 +716,7 @@ rect(x+15,y+10, 5,5)
  var tekenMonster4 = function(x, y) {
     
 //rij 1
-fill("orange")
+fill("blue")
 rect(x,y, 5,5)
 rect(x+10,y, 5,5)
 rect(x+15,y, 5,5)
@@ -946,19 +946,33 @@ var beweegGijand = function() {
 gijandX = gijandX + random(10) + random(-1)
 
 }; 
-var beweegMonster = function() {
- 
-monsterX = gijandX + random(10) + random(-1)
-
-}; 
-
 var beweegGijand = function() {
  
 gijandX = gijandX + random(10) + random(-1)
 
 }; 
+var beweegMonster1 = function() {
+ 
+monster1X = monster1X + random(10) + random(-1)
 
+}; 
+var beweegMonster2 = function() {
+ 
+monster2X = monster2X + random(10) + random(-1)
 
+}; var beweegMonster3 = function() {
+ 
+monster3X = monster3X + random(10) + random(-1)
+
+}; var beweegMonster4 = function() {
+ 
+monster4X = monster4X + random(10) + random(-1)
+
+}; var beweegMonster5 = function() {
+ 
+monster5X = monster5X + random(10) + random(-1)
+
+}; 
 /**
  * Updatet globale variabelen met positie van kogel of bal
  */
@@ -1050,6 +1064,8 @@ function draw() {
        beweegVijand();
       beweegDijand();
       beweegVeiand(); beweegGijand();
+     beweegMonster1(); beweegMonster2(); beweegMonster3(); beweegMonster4(); beweegMonster5();
+
       beweegKogel();
       beweegSpeler();
       
