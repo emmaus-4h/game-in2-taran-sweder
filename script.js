@@ -105,7 +105,7 @@ var score = 0; // aantal behaalde punten
  * Tekent het speelveld
  */
 var tekenVeld = function () {
-  fill("green");
+  fill("black");
   rect(20, 20, width - 2 * 20, height - 2 * 20);
 };
 
@@ -865,7 +865,7 @@ rect(x+15,y+10, 5,5)
  * @param {number} y y-coördinaat
  */
 var tekenKogel = function(x, y) {
-  fill("black");
+  fill("lightgreen");
   rect(x + 35,y - 45,8,25);
 
 
@@ -1143,7 +1143,7 @@ function setup() {
   createCanvas(1280, 720);
 
   // Kleur de achtergrond blauw, zodat je het kunt zien
-  background('blue');
+  background('white');
 }
 
 
