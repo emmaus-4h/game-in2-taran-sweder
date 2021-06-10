@@ -2,10 +2,16 @@
 /// <reference path=".gitpod/p5.global-mode.d.ts" />
 "use strict";
 
+/* 14 april tips van gee
+* 1: zorg dat speler getekend wordt op plek x
+*2 : test door aanpassen van spelerX en spelerY
+*3: pas spelerX en spelerY aan bij toetsindruk
+*/
+
+
 /* Game opdracht
    Informatica - Emmauscollege Rotterdam
    Template voor een game in JavaScript met de p5 library
-
    Begin met dit template voor je game opdracht,
    voeg er je eigen code aan toe.
  */
@@ -22,11 +28,25 @@ const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = SPELEN;
 
+const AFKOELTIMERSTART = 60;
+const AFKOELTIMERBEGIN = 60;
+var afkoeltimer = 0;
+
+const KEY_LEFT = 65;
+const KEY_RIGHT = 68;
+const KEY_UP = 87;
+const KEY_DOWN=30;
+const KEY_SPACE = 32;
+const KEY_SHIFT = 16;
+const KEY_LEFTARROW = 37;
+const KEY_RIGHTARROW = 39;
+const KEY_DOWNARROW = 40;
+const KEY_UPARROW = 38;
+
+
 var spelerX = 800; // x-positie van speler
 var spelerY = 580; // y-positie van speler
 
-var kogelX = 0;    // x-positie van kogel
-var kogelY = 0;    // y-positie van kogel
 
 var vijandX = 350;   // x-positie van vijand
 var vijandY = 350;   // y-positie van vijand
@@ -54,7 +74,22 @@ var monster4Y=100 // y-positie van vijand
 
 var monster5X=80; // x-positie van vijand
 var monster5Y=570  // y-positie van vijand
-                  
+
+var kogelX = 300;    // x-positie van kogel
+var kogelY = 200;    // y-positie van kogel
+
+
+
+var bulletX = 400;
+var bulletY = 200;
+
+var kogelsY = [];
+var kogelsX = [];
+
+var bulletsY = [];
+var bulletsX = [];
+
+
 var score = 0; // aantal behaalde punten
 
 
@@ -70,7 +105,7 @@ var score = 0; // aantal behaalde punten
  * Tekent het speelveld
  */
 var tekenVeld = function () {
-  fill("black");
+  fill("green");
   rect(20, 20, width - 2 * 20, height - 2 * 20);
 };
 
@@ -80,10 +115,7 @@ var tekenVeld = function () {
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
-
-var tekenVijand = function(x, y) {
-    
-//rij 1
+var tekenVijand = function(x, y) {//rij 1
 fill("orange")
 rect(x,y, 5,5)
 rect(x+10,y, 5,5)
@@ -821,11 +853,11 @@ rect(x+15,y+10, 5,5)
  
 
 
-
-/**
+  
  
 
-};
+
+
 
 /**
  * Tekent de kogel of de bal
@@ -833,18 +865,26 @@ rect(x+15,y+10, 5,5)
  * @param {number} y y-coördinaat
  */
 var tekenKogel = function(x, y) {
-  
+  fill("black");
+  rect(x + 35,y - 45,8,25);
+
 
 };
+
+var tekenBullet = function(x, y) {
+  fill("black");
+  rect(x + 35,y + 60 ,8,25);
+
+
+};
+
 
 /**
  * Tekent de speler
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
-var tekenSpeler = function(x, y) {
-  
-//rij 1
+var tekenSpeler = function(x, y) {//rij 1
 fill("yellow")
 rect(x,y, 5,5)
 rect(x+10,y, 5,5)
@@ -893,19 +933,16 @@ rect(x+20,y+5, 5,5)
   
 fill("green") 
 rect(x+15,y+10, 5,5)
-
-
-
- 
 };
+
+
+
 
 
 /**
  * Updatet globale variabelen met positie van vijand of tegenspeler
  */
-var beweegVijand = function() {
-
-vijandX = vijandX + random(10) + random(-1)
+var beweegVijand = function() {vijandX = vijandX + random(10) + random(-1)
 
 };    
 
@@ -972,15 +1009,50 @@ monster4X = monster4X + random(10) + random(-1)
  
 monster5X = monster5X + random(10) + random(-1)
 
-}; 
+   
+};
+
+
 /**
  * Updatet globale variabelen met positie van kogel of bal
  */
-var beweegKogel = function() { }
+var beweegKogel = function() {
+  for (var i = 0; i < kogelsY.length; i++) {
+        kogelsY[i] = kogelsY[i] - 6;
+      };
 
- // position of the ball
 
-// how far the ball moves every time
+if (afkoeltimer <= 0 ) {
+
+ if(keyIsDown(KEY_SPACE)) {
+ kogelsX.push(spelerX);
+  kogelsY.push(spelerY);
+ afkoeltimer = AFKOELTIMERSTART;
+ }
+}
+afkoeltimer=afkoeltimer -1;
+ 
+
+};
+
+
+
+
+var beweegBullet = function() {
+   for (var j = 0; j < bulletsY.length; j++) {
+        bulletsY[j] = bulletsY[j] + 6;
+      };
+
+if (afkoeltimer <= 0 ) {
+if(keyIsDown(KEY_SHIFT)) {
+ bulletsX.push(vijandX);
+  bulletsY.push(vijandY);
+  afkoeltimer = AFKOELTIMERBEGIN;
+ }
+}
+afkoeltimer=afkoeltimer -1;
+
+}
 
 
 /**
@@ -1005,6 +1077,8 @@ var beweegSpeler = function() {
     
 
 };
+
+
 
 
 /**
@@ -1033,7 +1107,28 @@ var checkSpelerGeraakt = function() {
  * @returns {boolean} true als het spel is afgelopen
  */
 var checkGameOver = function() {
-    
+  for(var i = 0; i < bulletsX.length; i++) {
+    if (bulletsX[i] > spelerX  &&
+    bulletsX[i] < spelerX + 37 &&
+    bulletsY[i] > spelerY - 20 &&
+    bulletsY[i] < spelerY + 50) {
+      console.log ("geraakt!!");
+      return true
+    }
+  }
+
+    for(var i = 0; i < kogelsX.length; i++) {
+    if (kogelsX[i] > vijandX &&
+    kogelsX[i] < vijandX + 37 &&
+    kogelsY[i] > vijandY - 20 &&
+    kogelsY[i] < vijandY + 50) {
+      console.log ("geraakt!!");
+      return true
+    }
+  }
+  
+   
+  
   return false;
 };
 
@@ -1048,7 +1143,7 @@ function setup() {
   createCanvas(1280, 720);
 
   // Kleur de achtergrond blauw, zodat je het kunt zien
-  background("white");
+  background('blue');
 }
 
 
@@ -1060,14 +1155,16 @@ function setup() {
 function draw() {
   switch (spelStatus) {
     case SPELEN:
-      
-       beweegVijand();
-      beweegDijand();
-      beweegVeiand(); beweegGijand();
-     beweegMonster1(); beweegMonster2(); beweegMonster3(); beweegMonster4(); beweegMonster5();
-
+      beweegVijand();
       beweegKogel();
       beweegSpeler();
+      beweegBullet();
+      beweegVijand();
+      beweegDijand();
+      beweegVeiand(); beweegGijand();
+ beweegMonster1(); beweegMonster2(); beweegMonster3(); beweegMonster4(); beweegMonster5();
+      
+      
       
       if (checkVijandGeraakt()) {
         // punten erbij
@@ -1080,8 +1177,8 @@ function draw() {
       }
 
       tekenVeld();
-     tekenVijand(vijandX, vijandY);
-      tekenDijand(dijandX, dijandY);
+      tekenVijand(vijandX, vijandY);
+tekenDijand(dijandX, dijandY);
       tekenVeiand(veiandX, veiandY);
       tekenGijand(gijandX, gijandY);
  tekenMonster1(monster1X,monster1Y);
@@ -1089,21 +1186,30 @@ function draw() {
 tekenMonster3(monster3X,monster3Y);
  tekenMonster4(monster4X,monster4Y);
  tekenMonster5,(monster5X,monster5Y);
-
-
-
-
-
-
-
-
-
+      for (var i = 0; i < kogelsX.length; i++) {
+        tekenKogel(kogelsX[i],kogelsY[i])
+      };
       tekenKogel(kogelX, kogelY);
       tekenSpeler(spelerX, spelerY);
+
+      for (var j = 0; j < bulletsX.length; j++) {
+        tekenBullet(bulletsX[j],bulletsY[j])
+      };
+      tekenBullet(bulletX, bulletY);
       
+
       if (checkGameOver()) {
         spelStatus = GAMEOVER;
       }
       break;
+
+
+      case GAMEOVER:
+      fill("white")
+      textSize(40)
+      text("Reload to start again!!",400,450)
+      textSize(100)
+      text("Game Over", 400,400)
+      
   }
 }
