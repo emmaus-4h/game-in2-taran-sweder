@@ -40,17 +40,17 @@ var veiandY = 200;   // y-positie van vijand
 var gijandX = 80;   // x-positie van vijand
 var gijandY = 500;  // y-positie van vijand
              
-var monster1X=550; // x-positie van vijand
-var monster1Y=400 // y-positie van vijand
+var monster1X=500; // x-positie van vijand
+var monster1Y=290 // y-positie van vijand
 
 var monster2X=500; // x-positie van vijand
-var monster2Y=400 // y-positie van vijand
+var monster2Y=100 // y-positie van vijand
 
 var monster3X=850; // x-positie van vijand
-var monster3Y=250 // y-positie van vijand
+var monster3Y=150 // y-positie van vijand
 
 var monster4X=80; // x-positie van vijand
-var monster4Y=300 // y-positie van vijand
+var monster4Y=100 // y-positie van vijand
 
 var monster5X=80; // x-positie van vijand
 var monster5Y=570  // y-positie van vijand
@@ -559,7 +559,7 @@ rect(x+15,y+10, 5,5)
 
 var tekenMonster1 = function(x, y) {
 //rij 1
-fill("red")
+fill("white")
 rect(x,y, 5,5)
 rect(x+10,y, 5,5)
 rect(x+15,y, 5,5)
@@ -611,7 +611,7 @@ rect(x+15,y+10, 5,5)
  var tekenMonster2= function(x, y) {
     
 //rij 1
-fill("orange")
+fill("oange")
 rect(x,y, 5,5)
 rect(x+10,y, 5,5)
 rect(x+15,y, 5,5)
@@ -664,7 +664,7 @@ rect(x+15,y+10, 5,5)
 
 var tekenMonster3 = function(x, y) {
 //rij 1
-fill("red")
+fill("yellow")
 rect(x,y, 5,5)
 rect(x+10,y, 5,5)
 rect(x+15,y, 5,5)
