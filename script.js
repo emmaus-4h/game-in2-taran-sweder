@@ -2,6 +2,13 @@
 /// <reference path=".gitpod/p5.global-mode.d.ts" />
 "use strict";
 
+/* 14 april tips van gee
+* 1: zorg dat speler getekend wordt op plek x
+*2 : test door aanpassen van spelerX en spelerY
+*3: pas spelerX en spelerY aan bij toetsindruk
+*/
+
+
 /* Game opdracht
    Informatica - Emmauscollege Rotterdam
    Template voor een game in JavaScript met de p5 library
@@ -25,16 +32,10 @@ const AFKOELTIMERSTART = 60;
 const AFKOELTIMERBEGIN = 60;
 var afkoeltimer = 0;
 
-const KEY_LEFT = 65;
-const KEY_RIGHT = 68;
-const KEY_UP = 87;
-const KEY_DOWN=30;
+
 const KEY_SPACE = 32;
 const KEY_SHIFT = 16;
-const KEY_LEFTARROW = 37;
-const KEY_RIGHTARROW = 39;
-const KEY_DOWNARROW = 40;
-const KEY_UPARROW = 38;
+
 
 
 var spelerX = 800; // x-positie van speler
@@ -73,14 +74,11 @@ var kogelY = 200;    // y-positie van kogel
 
 
 
-var bulletX = 400;
-var bulletY = 200;
 
 var kogelsY = [];
 var kogelsX = [];
 
-var bulletsY = [];
-var bulletsX = [];
+
 
 
 var score = 0; // aantal behaalde punten
@@ -96,14 +94,6 @@ var score = 0; // aantal behaalde punten
 
 /**
  * Tekent het speelveld
- */
-
-
-//width - 2 * 20, height - 2 *20
-/**
- * Tekent de vijand
- * @param {number} x x-coördinaat
- * @param {number} y y-coördinaat
  */
 var tekenVeld = function () {
   fill("black");
@@ -872,12 +862,7 @@ var tekenKogel = function(x, y) {
 
 };
 
-var tekenBullet = function(x, y) {
-  fill("black");
-  rect(x + 35,y + 60 ,8,25);
 
-
-};
 
 
 /**
@@ -1014,83 +999,6 @@ monster5X = monster5X + random(10) + random(-1)
 };
 
 
-
-
-
-/**
- * Updatet globale variabelen met positie van vijand of tegenspeler
- */
-var beweegVijand = function() {vijandX = vijandX + random(10) + random(-1)
-
-};    
-
-var beweegDijand = function() {
- 
-dijandX = dijandX + random(10) + random(-1)
-
-}; 
-
-var beweegVeiand = function() {
- 
-veiandX = veiandX + random(10) + random(-1)
-
-}; 
-
-
-var beweegGijand = function() {
- 
-gijandX = gijandX + random(10) + random(-1)
-
-}; 
-
-
-var beweegGijand = function() {
- 
-gijandX = gijandX + random(10) + random(-1)
-
-}; 
-
-var beweegGijand = function() {
- 
-gijandX = gijandX + random(10) + random(-1)
-
-}; 
-
-var beweegGijand = function() {
- 
-gijandX = gijandX + random(10) + random(-1)
-
-}; 
-var beweegGijand = function() {
- 
-gijandX = gijandX + random(10) + random(-1)
-
-}; 
-var beweegMonster1 = function() {
- 
-monster1X = monster1X + random(10) + random(-1)
-
-}; 
-var beweegMonster2 = function() {
- 
-monster2X = monster2X + random(10) + random(-1)
-
-}; var beweegMonster3 = function() {
- 
-monster3X = monster3X + random(10) + random(-1)
-
-}; var beweegMonster4 = function() {
- 
-monster4X = monster4X + random(10) + random(-1)
-
-}; var beweegMonster5 = function() {
- 
-monster5X = monster5X + random(10) + random(-1)
-
-   
-};
-
-
 /**
  * Updatet globale variabelen met positie van kogel of bal
  */
@@ -1116,21 +1024,7 @@ afkoeltimer=afkoeltimer -1;
 
 
 
-var beweegBullet = function() {
-   for (var j = 0; j < bulletsY.length; j++) {
-        bulletsY[j] = bulletsY[j] + 6;
-      };
 
-if (afkoeltimer <= 0 ) {
-if(keyIsDown(KEY_SHIFT)) {
- bulletsX.push(vijandX);
-  bulletsY.push(vijandY);
-  afkoeltimer = AFKOELTIMERBEGIN;
- }
-}
-afkoeltimer=afkoeltimer -1;
-
-}
 
 
 /**
@@ -1159,43 +1053,49 @@ var beweegSpeler = function() {
 
 
 
+/**
+ * Zoekt uit of de vijand is geraakt
+ * @returns {boolean} true als vijand is geraakt
+ */
+var checkVijandGeraakt = function() {
+
+  return false;
+};
+
+
+/**
+ * Zoekt uit of de speler is geraakt
+ * bijvoorbeeld door botsing met vijand
+ * @returns {boolean} true als speler is geraakt
+ */
+var checkSpelerGeraakt = function() {
+    
+  return false;
+};
+
 
 /**
  * Zoekt uit of het spel is afgelopen
  * @returns {boolean} true als het spel is afgelopen
  */
 var checkGameOver = function() {
-    
+  
 
-
-//speler raakt rand scherm 
-if ((spelerX < 21 || spelerY < 21 || spelerX > 1219 || spelerY > 659 ) 
-
-//speler raakt vjand 
-||(spelerX - vijandX < 25 && spelerX - vijandX > -25 ) )
-
-{
-
-spelerX = spelerX - 1000
-fill("black");
-rect(20, 20, 1240, 680);
-
-fill("lightgreen");
-textSize(100);
-text('GAME OVER', 350, 400);
-
-fill("white");
-textSize(60);
-text('press reload to try again!', 350, 550);
-
-}
+    for(var i = 0; i < kogelsX.length; i++) {
+    if (kogelsX[i] > vijandX &&
+    kogelsX[i] < vijandX + 37 &&
+    kogelsY[i] > vijandY - 20 &&
+    kogelsY[i] < vijandY + 50) {
+      console.log ("geraakt!!");
+      return true
+    }
+  }
+  
+   
+  
   return false;
 };
 
-
-
-
- 
 
 /**
  * setup
@@ -1222,7 +1122,7 @@ function draw() {
       beweegVijand();
       beweegKogel();
       beweegSpeler();
-      beweegBullet();
+      
       beweegVijand();
       beweegDijand();
       beweegVeiand(); beweegGijand();
@@ -1230,7 +1130,15 @@ function draw() {
       
       
       
-  
+      if (checkVijandGeraakt()) {
+        // punten erbij
+        // nieuwe vijand maken
+      }
+      
+      if (checkSpelerGeraakt()) {
+        // leven eraf of gezondheid verlagen
+        // eventueel: nieuwe speler maken
+      }
 
       tekenVeld();
       tekenVijand(vijandX, vijandY);
@@ -1242,18 +1150,13 @@ tekenDijand(dijandX, dijandY);
 tekenMonster3(monster3X,monster3Y);
  tekenMonster4(monster4X,monster4Y);
  tekenMonster5,(monster5X,monster5Y);
-
-
       for (var i = 0; i < kogelsX.length; i++) {
         tekenKogel(kogelsX[i],kogelsY[i])
       };
-      tekenKogel(kogelX, kogelY);
+     
       tekenSpeler(spelerX, spelerY);
 
-      for (var j = 0; j < bulletsX.length; j++) {
-        tekenBullet(bulletsX[j],bulletsY[j])
-      };
-      tekenBullet(bulletX, bulletY);
+    
       
 
       if (checkGameOver()) {
@@ -1261,5 +1164,13 @@ tekenMonster3(monster3X,monster3Y);
       }
       break;
 
+
+      case GAMEOVER:
+      fill("white")
+      textSize(40)
+      text("Reload to start again!!",400,450)
+      textSize(100)
+      text("Game Over", 400,400)
+      
   }
 }
