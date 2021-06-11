@@ -929,53 +929,67 @@ rect(x+15,y+10, 5,5)
  * Updatet globale variabelen met positie van vijand of tegenspeler
  */
 var beweegVijand = function() {
-  vijandX = vijandX + random(10) + random(-1)
-vijandY = vijandY + random(10) + random (-1)
+  vijandX = vijandX + 5
+if (vijandX>1220){ vijandX=50;}
+if (vijandX<50){vijandX=1220;}
 };    
 
 var beweegDijand = function() {
- 
-dijandX = dijandX + random(10) + random(-1)
-dijandY = dijandY + random (20) + random(-1)
+   dijandX = veiandX + 5
+if (dijandX>1220){ dijandX=50;}
+if (dijandX<50){dijandX=1220;}
 }; 
 
+
+
 var beweegVeiand = function() {
- 
-veiandX = veiandX + random(10) + random(-1)
-veiandY = veiandY + random (20) + random(-1)
+   veiandX = veiandX + 5
+if (veiandX>1220){ veiandX=50;}
+if (veiandX<50){veiandX=1220;}
 }; 
+
+;
 
 
 var beweegGijand = function() {
- 
-gijandX = gijandX + random(10) + random(-1)
-gijandY = gijandY + random (20) + random(-1)
+   gijandX = gijandX + 5
+if (gijandX>1220){ gijandX=50;}
+if (gijandX<50){gijandX=1220;}
 }; 
+
 
 
 var beweegMonster1 = function() {
- 
-monster1X = monster1X + random(10) + random(-1)
-monster1Y = monster1Y + random(10) + random (-1)
+  monster1X = monster1X + 5
+  monster1Y= monster1Y
+if (monster1X>1220){ monster1X=50;}
+if (monster1X<50){monster1X=1220;}
+if (monster1X>1220){ monster1Y=monster1Y-3;}
+
 }; 
+
 var beweegMonster2 = function() {
- 
-monster2X = monster2X + random(10) + random(-1)
-monster2Y = monster2Y + random(10) + random (-1)
-}; var beweegMonster3 = function() {
- 
-monster3X = monster3X + random(10) + random(-1)
-monster3Y = monster3Y + random(10) + random (-1)
-}; var beweegMonster4 = function() {
- 
-monster4X = monster4X + random(10) + random(-1)
-monster4Y = monster4Y + random(10) + random (-1)
-}; var beweegMonster5 = function() {
- 
-monster5X = monster5X + random(10) + random(-1)
-monster5Y = monster5Y + random(10) + random (-1)
-   
-};
+ monster2X = monster2X + 5
+if (monster2X>1220){ monster2X=50;}
+if (monster2X<50){monster2X=1220;}
+}; 
+
+ var beweegMonster3 = function() {
+  monster3X = monster3X + 5
+if (monster3X>1220){ monster3X=50;}
+if (monster3X<50){monster3X=1220;}
+}; 
+ var beweegMonster4 = function() {
+  monster4X = monster4X + 5
+if (monster4X>1220){ monster4X=50;}
+if (monster4X<50){monster4X=1220;}
+}; 
+
+ var beweegMonster5 = function() {
+ monster5X = monster5X + 5
+if (monster5X>1220){ monster5X=50;}
+if (monster5X<50){monster5X=1220;}
+}; 
 
 
 /**
