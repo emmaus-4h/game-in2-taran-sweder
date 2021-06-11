@@ -928,73 +928,52 @@ rect(x+15,y+10, 5,5)
 /**
  * Updatet globale variabelen met positie van vijand of tegenspeler
  */
-var beweegVijand = function() {vijandX = vijandX + random(10) + random(-1)
-
+var beweegVijand = function() {
+  vijandX = vijandX + random(10) + random(-1)
+vijandY = vijandY + random(10) + random (-1)
 };    
 
 var beweegDijand = function() {
  
 dijandX = dijandX + random(10) + random(-1)
-
+dijandY = dijandY + random (20) + random(-1)
 }; 
 
 var beweegVeiand = function() {
  
 veiandX = veiandX + random(10) + random(-1)
-
+veiandY = veiandY + random (20) + random(-1)
 }; 
 
 
 var beweegGijand = function() {
  
 gijandX = gijandX + random(10) + random(-1)
-
+gijandY = gijandY + random (20) + random(-1)
 }; 
 
 
-var beweegGijand = function() {
- 
-gijandX = gijandX + random(10) + random(-1)
-
-}; 
-
-var beweegGijand = function() {
- 
-gijandX = gijandX + random(10) + random(-1)
-
-}; 
-
-var beweegGijand = function() {
- 
-gijandX = gijandX + random(10) + random(-1)
-
-}; 
-var beweegGijand = function() {
- 
-gijandX = gijandX + random(10) + random(-1)
-
-}; 
 var beweegMonster1 = function() {
  
 monster1X = monster1X + random(10) + random(-1)
-
+monster1Y = monster1Y + random(10) + random (-1)
 }; 
 var beweegMonster2 = function() {
  
 monster2X = monster2X + random(10) + random(-1)
-
+monster2Y = monster2Y + random(10) + random (-1)
 }; var beweegMonster3 = function() {
  
 monster3X = monster3X + random(10) + random(-1)
-
+monster3Y = monster3Y + random(10) + random (-1)
 }; var beweegMonster4 = function() {
  
 monster4X = monster4X + random(10) + random(-1)
-
+monster4Y = monster4Y + random(10) + random (-1)
 }; var beweegMonster5 = function() {
  
 monster5X = monster5X + random(10) + random(-1)
-
+monster5Y = monster5Y + random(10) + random (-1)
    
 };
 
