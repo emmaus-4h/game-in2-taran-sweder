@@ -28,7 +28,7 @@ const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = SPELEN;
 
-const AFKOELTIMERSTART = 60;
+const AFKOELTIMERSTART = 20;
 const AFKOELTIMERBEGIN = 60;
 var afkoeltimer = 0;
 
@@ -857,7 +857,7 @@ rect(x+15,y+10, 5,5)
  */
 var tekenKogel = function(x, y) {
   fill("lightgreen");
-  rect(x + 35,y - 45,8,25);
+  rect(x + 55,y - 45,8,25);
 
 
 };
@@ -871,55 +871,10 @@ var tekenKogel = function(x, y) {
  * @param {number} y y-coördinaat
  */
 var tekenSpeler = function(x, y) {//rij 1
-fill("yellow")
-rect(x,y, 5,5)
-rect(x+10,y, 5,5)
-rect(x+15,y, 5,5)
-rect(x+20,y, 5,5)
-rect(x+30,y, 5,5)
-
-//rij 2
-rect(x+5,y+5, 5,5)
-rect(x+25,y+5, 5,5)
-rect(x+15,y+5, 5,5)
-
-//rij 3
-rect(x+10,y+10, 5,5)
-rect(x+20,y+10, 5,5)
-
-//rij 4
-rect(x+10,y+15, 5,5)
-rect(x+5,y+15, 5,5)
-rect(x+15,y+15, 5,5)
-rect(x+20,y+15, 5,5)
-rect(x+25,y+15, 5,5)
-
-//rij 5
-rect(x,y+20, 5,5)
-rect(x+15,y+20, 5,5)
-rect(x+30,y+20, 5,5)
-
-//rij 6
-rect(x,y+25, 5,5)
-rect(x+10,y+25, 5,5)
-rect(x+20,y+25, 5,5)
-rect(x+30,y+25, 5,5)
-
-//rij 7
-rect(x+10,y+30, 5,5)
-rect(x+20,y+30, 5,5)
-
-//rij 8
-rect(x+10,y+35, 5,5)
-rect(x+20,y+35, 5,5)
-
-fill("green")
-rect(x+10,y+5, 5,5)
-rect(x+20,y+5, 5,5)
-  
-fill("green") 
-rect(x+15,y+10, 5,5)
-};
+fill("white");
+rect(x+20,y-5,80,25);
+rect(x+39,y-24,38,20);
+}
 
 
 
