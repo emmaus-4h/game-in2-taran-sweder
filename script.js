@@ -988,12 +988,12 @@ var beweegSpeler = function() {
     }
     
 
- if (spelerX <50) {
-      spelerX = 50;}
+ if (spelerX <10) {
+      spelerX = 10;}
     
      
-    if (spelerX > 1220) {
-      spelerX = 1220;}
+    if (spelerX > 1155) {
+      spelerX = 1155;}
     
 
 };
