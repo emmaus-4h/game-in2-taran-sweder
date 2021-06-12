@@ -1003,7 +1003,110 @@ var beweegSpeler = function() {
  * @returns {boolean} true als vijand is geraakt
  */
 var checkVijandGeraakt = function() {
+ for(var i = 0; i < kogelsX.length; i++) {
+    if (kogelsX[i] > vijandX &&
+    kogelsX[i] < vijandX + 37 &&
+    kogelsY[i] > vijandY - 20 &&
+    kogelsY[i] < vijandY + 50 )
 
+     {
+      console.log ("geraakt!!");
+      return true
+       }
+  }
+
+
+for(var i = 0; i < kogelsX.length; i++) {
+    if (kogelsX[i] > dijandX &&
+    kogelsX[i] < dijandX + 37 &&
+    kogelsY[i] > dijandY - 20 &&
+    kogelsY[i] < dijandY + 50 )
+
+     {
+      console.log ("geraakt!!");
+      return true
+       }
+  }
+
+
+for(var i = 0; i < kogelsX.length; i++) {
+    if (kogelsX[i] > gijandX &&
+    kogelsX[i] < gijandX + 37 &&
+    kogelsY[i] > gijandY - 20 &&
+    kogelsY[i] < gijandY + 50 )
+
+     {
+      console.log ("geraakt!!");
+      return true
+       }
+  }
+
+
+for(var i = 0; i < kogelsX.length; i++) {
+    if (kogelsX[i] > monster1X &&
+    kogelsX[i] < monster1X + 37 &&
+    kogelsY[i] > monster1Y - 20 &&
+    kogelsY[i] < monster1Y + 50 )
+
+     {
+      console.log ("geraakt!!");
+      return true
+       }
+  }
+for(var i = 0; i < kogelsX.length; i++) {
+    if (kogelsX[i] > monster2X &&
+    kogelsX[i] < monster2X + 37 &&
+    kogelsY[i] > monster2Y - 20 &&
+    kogelsY[i] < monster2Y + 50 )
+
+     {
+      console.log ("geraakt!!");
+      return true
+       }
+  }
+for(var i = 0; i < kogelsX.length; i++) {
+    if (kogelsX[i] > monster3X &&
+    kogelsX[i] < monster3X + 37 &&
+    kogelsY[i] > monster3Y - 20 &&
+    kogelsY[i] < monster3Y + 50 )
+
+     {
+      console.log ("geraakt!!");
+      return true
+       }
+  }
+
+
+  for(var i = 0; i < kogelsX.length; i++) {
+    if (kogelsX[i] > monster2X &&
+    kogelsX[i] < monster4X + 37 &&
+    kogelsY[i] > monster4Y - 20 &&
+    kogelsY[i] < monster4Y + 50 )
+
+     {
+      console.log ("geraakt!!");
+      return true
+       }
+  }
+
+
+
+  for(var i = 0; i < kogelsX.length; i++) {
+    if (kogelsX[i] > monster2X &&
+    kogelsX[i] < monster5X + 37 &&
+    kogelsY[i] > monster5Y - 20 &&
+    kogelsY[i] < monster5Y + 50 )
+
+     {
+      console.log ("geraakt!!");
+      return true
+       }
+  }
+
+
+
+
+    
   return false;
 };
 
@@ -1014,9 +1117,13 @@ var checkVijandGeraakt = function() {
  * @returns {boolean} true als speler is geraakt
  */
 var checkSpelerGeraakt = function() {
+
     
+  
   return false;
 };
+    
+
 
 
 /**
