@@ -952,7 +952,7 @@ if (monster5X<50){monster5X=1220;}
  */
 var beweegKogel = function() {
   for (var i = 0; i < kogelsY.length; i++) {
-        kogelsY[i] = kogelsY[i] - 6;
+        kogelsY[i] = kogelsY[i] - 5;
       };
 
 
@@ -965,10 +965,7 @@ if (afkoeltimer <= 0 ) {
  }
 }
 afkoeltimer=afkoeltimer -1;
- 
-
 };
-
 
 
 
@@ -1029,15 +1026,8 @@ var checkSpelerGeraakt = function() {
 var checkGameOver = function() {
   
 
-    for(var i = 0; i < kogelsX.length; i++) {
-    if (kogelsX[i] > vijandX &&
-    kogelsX[i] < vijandX + 37 &&
-    kogelsY[i] > vijandY - 20 &&
-    kogelsY[i] < vijandY + 50) {
-      console.log ("geraakt!!");
-      return true
-    }
-  }
+   
+  
   
    
   
