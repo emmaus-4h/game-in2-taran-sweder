@@ -1135,10 +1135,11 @@ var checkGameOver = function() {
 
    
   
-  
-   
-  
-  return false;
+  if (score >= 100) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 
