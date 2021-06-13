@@ -1165,20 +1165,7 @@ for(var i = 0; i < kogelsX.length; i++) {
  */
 var checkSpelerGeraakt = function() {
 
-  if(spelerX-vijandY===0 && spelerX-vijandX===0){
-
-       textSize(100);
-    fill("white")
-    text("GAMEOVER",380,400)
-    textSize(50);
-    fill("lightgreen")
-    text("player 1 LOSE",480,480)
-    return true; spelStatus=GAMEOVER;
-
-  } else {
-    return false;
-  }
-};
+  
 
     
   
