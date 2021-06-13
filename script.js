@@ -29,7 +29,7 @@ const GAMEOVER = 2;
 
 var spelStatus = SPELEN;
 
-const AFKOELTIMERSTART = 20;
+const AFKOELTIMERSTART = 10;
 const AFKOELTIMERBEGIN = 60;
 var afkoeltimer = 0;
 
@@ -82,7 +82,7 @@ var kogelsX = [];
 
 
 
-var score1X =0; // aantal behaalde punten
+var score1X =40; // aantal behaalde punten
 
 
 
@@ -887,6 +887,7 @@ rect(x+39,y-24,38,20);
 var beweegVijand = function() {
   vijandX = vijandX +random(10);
  vijandY= vijandY +random(1);
+if (vijandY>=spelerY+random(1)){score1X=score1X-1;}
  if(vijandY>610){vijandY=150;}
 if (vijandX>1220){ vijandX=50;}
 if (vijandX<50){vijandX=1220;}
@@ -896,6 +897,7 @@ if (vijandX<50){vijandX=1220;}
 var beweegDijand = function() {
    dijandX = dijandX +  random(10);
  dijandY= dijandY +random(1);
+    if (dijandY>=spelerY+random(1)){score1X=score1X-1;}
   if(dijandY>610){dijandY=150;}
 if (dijandX>1220){ dijandX=50;}
 if (dijandX<50){dijandX=1220;}
@@ -907,6 +909,7 @@ var beweegVeiand = function() {
    veiandX = veiandX + random(5)
     veiandX = veiandX +random(10);
  veiandY= veiandY + random(1);
+   if (veiandY>=spelerY+random(1)){score1X=score1X-1;}
  if(veiandY>610){veiandY=150;}
 if (veiandX>1220){ veiandX=50;}
 if (veiandX<50){veiandX=1220;}
@@ -919,6 +922,7 @@ var beweegGijand = function() {
    gijandX = gijandX + random(5)
     gijandX = gijandX +random(10);
  gijandY= gijandY + random(1);
+      if (gijandY>=spelerY+random(1)){score1X=score1X-1;}
   if(gijandY>610){gijandY=150;}
 if (gijandX>1220){ gijandX=50;}
 if (gijandX<50){gijandX=1220;}
@@ -929,7 +933,7 @@ if (gijandX<50){gijandX=1220;}
 var beweegMonster1 = function() {
   monster1X = monster1X + random(10);
   monster1Y= monster1Y+ random(1);
-
+    if (monster1Y>=spelerY+random(1)){score1X=score1X-1;}
   if(monster1Y>610){monster1Y=150;}
 if (monster1X>1220){ monster1X=50;}
 if (monster1X<50){monster1X=1220;}
@@ -940,6 +944,7 @@ if (monster1X<50){monster1X=1220;}
 var beweegMonster2 = function() {
  monster2X = monster2X + random(5)
   monster2Y= monster2Y+ random(1);
+    if (monster2Y>=spelerY+random(1)){score1X=score1X-1;}
   if(monster2Y>610){monster2Y=150;}
 if (monster2X>1220){ monster2X=50;}
 if (monster2X<50){monster2X=1220;}
@@ -948,6 +953,7 @@ if (monster2X<50){monster2X=1220;}
  var beweegMonster3 = function() {
   monster3X = monster3X + random(5)
    monster3Y= monster3Y+ random(1);
+    if (monster3Y>=spelerY+random(1)){score1X=score1X-1;}
   if(monster3Y>610){monster3Y=150;}
 if (monster3X>1220){ monster3X=50;}
 if (monster3X<50){monster3X=1220;}
@@ -955,6 +961,7 @@ if (monster3X<50){monster3X=1220;}
  var beweegMonster4 = function() {
   monster4X = monster4X + random(5)
    monster4Y= monster4Y+ random(1);
+      if (monster4Y>=spelerY+random(1)){score1X=score1X-1;}
   if(monster4Y>610){monster4Y=150;}
 if (monster4X>1220){ monster4X=50;}
 if (monster4X<50){monster4X=1220;}
@@ -963,7 +970,7 @@ if (monster4X<50){monster4X=1220;}
  var beweegMonster5 = function() {
  monster5X = monster5X + random(5);
   monster5Y= monster5Y+ random (10);
-
+       if (monster5Y>=spelerY+random(1)){score1X=score1X-1;}
   if(monster5Y>610){monster5Y=150;}
 if (monster5X>1220){ monster5X=50;}
 
@@ -1002,10 +1009,10 @@ afkoeltimer=afkoeltimer -1;
  */
 var beweegSpeler = function() {
   if (keyIsDown(65)) {
-    spelerX = spelerX - 5;
+    spelerX = spelerX - 20;
   }
   if (keyIsDown(68)) {
-    spelerX = spelerX + 5;
+    spelerX = spelerX + 20;
     }
     
 
@@ -1189,7 +1196,7 @@ var checkSpelerGeraakt = function() {
 var checkGameOver = function() {
   
 
-     if (score1X >=  400) {
+     if (score1X >=  60) {
        textSize(100);
     fill("white")
     text("GAMEOVER",380,400)
