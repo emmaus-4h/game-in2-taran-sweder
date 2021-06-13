@@ -26,6 +26,7 @@
 const UITLEG = 0;
 const SPELEN = 1;
 const GAMEOVER = 2;
+
 var spelStatus = SPELEN;
 
 const AFKOELTIMERSTART = 20;
@@ -81,7 +82,7 @@ var kogelsX = [];
 
 
 
-var score = 0; // aantal behaalde punten
+var score1X = 0; // aantal behaalde punten
 
 
 
@@ -634,7 +635,7 @@ rect(x+15,y+10, 5,5)
  var tekenMonster2= function(x, y) {
     
 //rij 1
-fill("oange")
+fill("orange")
 rect(x,y, 5,5)
 rect(x+10,y, 5,5)
 rect(x+15,y, 5,5)
@@ -884,13 +885,19 @@ rect(x+39,y-24,38,20);
  * Updatet globale variabelen met positie van vijand of tegenspeler
  */
 var beweegVijand = function() {
-  vijandX = vijandX + 5
+  vijandX = vijandX +random(10);
+ vijandY= vijandY +random(1);
+ if(vijandY>610){vijandY=150;}
 if (vijandX>1220){ vijandX=50;}
 if (vijandX<50){vijandX=1220;}
+
 };    
 
 var beweegDijand = function() {
-   dijandX = veiandX + 5
+   dijandX = veiandX + random(+8);
+    dijandX = dijandX +random(10);
+ dijandY= dijandY +random(1);
+  if(dijandY>610){dijandY=150;}
 if (dijandX>1220){ dijandX=50;}
 if (dijandX<50){dijandX=1220;}
 }; 
@@ -898,7 +905,10 @@ if (dijandX<50){dijandX=1220;}
 
 
 var beweegVeiand = function() {
-   veiandX = veiandX + 5
+   veiandX = veiandX + random(5)
+    veiandX = veiandX +random(10);
+ veiandY= veiandY +random(1);
+ if(veiandY>610){veiandY=150;}
 if (veiandX>1220){ veiandX=50;}
 if (veiandX<50){veiandX=1220;}
 }; 
@@ -907,7 +917,10 @@ if (veiandX<50){veiandX=1220;}
 
 
 var beweegGijand = function() {
-   gijandX = gijandX + 5
+   gijandX = gijandX + random(5)
+    gijandX = gijandX +random(10);
+ gijandY= gijandY +random(1);
+  if(gijandY>610){gijandY=150;}
 if (gijandX>1220){ gijandX=50;}
 if (gijandX<50){gijandX=1220;}
 }; 
@@ -915,33 +928,42 @@ if (gijandX<50){gijandX=1220;}
 
 
 var beweegMonster1 = function() {
-  monster1X = monster1X + 5
-  monster1Y= monster1Y
+  monster1X = monster1X + random(10);
+  monster1Y= monster1Y+random(1);
+  if(monster1Y>610){monster1Y=150;}
 if (monster1X>1220){ monster1X=50;}
 if (monster1X<50){monster1X=1220;}
-if (monster1X>1220){ monster1Y=monster1Y-3;}
+
 
 }; 
 
 var beweegMonster2 = function() {
- monster2X = monster2X + 5
+ monster2X = monster2X + random(5)
+  monster1Y= monster1Y+random(1);
+  if(monster2Y>610){monster2Y=150;}
 if (monster2X>1220){ monster2X=50;}
 if (monster2X<50){monster2X=1220;}
 }; 
 
  var beweegMonster3 = function() {
-  monster3X = monster3X + 5
+  monster3X = monster3X + random(5)
+   monster3Y= monster3Y+random(1);
+  if(monster3Y>610){monster3Y=150;}
 if (monster3X>1220){ monster3X=50;}
 if (monster3X<50){monster3X=1220;}
 }; 
  var beweegMonster4 = function() {
-  monster4X = monster4X + 5
+  monster4X = monster4X + random(5)
+   monster4Y= monster4Y+random(1);
+  if(monster4Y>610){monster4Y=150;}
 if (monster4X>1220){ monster4X=50;}
 if (monster4X<50){monster4X=1220;}
 }; 
 
  var beweegMonster5 = function() {
- monster5X = monster5X + 5
+ monster5X = monster5X + random(5)
+  monster5Y= monster5Y+random(1);
+  if(monster5Y>610){monster5Y=150;}
 if (monster5X>1220){ monster5X=50;}
 if (monster5X<50){monster5X=1220;}
 }; 
@@ -1009,12 +1031,25 @@ var checkVijandGeraakt = function() {
     kogelsY[i] > vijandY - 20 &&
     kogelsY[i] < vijandY + 50 )
 
-     {
-      console.log ("geraakt!!");
+     {  score1X=score1X+1;
+      console.log ("vijandgeraakt!!");
       return true
+     
        }
   }
 
+ for(var i = 0; i < kogelsX.length; i++) {
+    if (kogelsX[i] > veiandX &&
+    kogelsX[i] < veiandX + 37 &&
+    kogelsY[i] > veiandY - 20 &&
+    kogelsY[i] < veiandY + 50 )
+
+     {
+        score1X=score1X+1;
+      console.log ("veiandgeraakt!!");
+      return true
+       }
+  }
 
 for(var i = 0; i < kogelsX.length; i++) {
     if (kogelsX[i] > dijandX &&
@@ -1023,7 +1058,8 @@ for(var i = 0; i < kogelsX.length; i++) {
     kogelsY[i] < dijandY + 50 )
 
      {
-      console.log ("geraakt!!");
+         score1X=score1X+1;
+      console.log ("dijandgeraakt!!");
       return true
        }
   }
@@ -1036,7 +1072,9 @@ for(var i = 0; i < kogelsX.length; i++) {
     kogelsY[i] < gijandY + 50 )
 
      {
-      console.log ("geraakt!!");
+       
+      console.log ("gijandgeraakt!!");
+       score1X=score1X+1;
       return true
        }
   }
@@ -1049,7 +1087,9 @@ for(var i = 0; i < kogelsX.length; i++) {
     kogelsY[i] < monster1Y + 50 )
 
      {
-      console.log ("geraakt!!");
+       
+      console.log ("monster1geraakt!!");
+      score1X=score1X+1;
       return true
        }
   }
@@ -1060,7 +1100,9 @@ for(var i = 0; i < kogelsX.length; i++) {
     kogelsY[i] < monster2Y + 50 )
 
      {
-      console.log ("geraakt!!");
+     
+      console.log ("monster2geraakt!!");
+       score1X=score1X+1;
       return true
        }
   }
@@ -1071,20 +1113,24 @@ for(var i = 0; i < kogelsX.length; i++) {
     kogelsY[i] < monster3Y + 50 )
 
      {
-      console.log ("geraakt!!");
+      
+      console.log ("monster3geraakt!!");
+       score1X=score1X+1;
       return true
        }
   }
 
 
   for(var i = 0; i < kogelsX.length; i++) {
-    if (kogelsX[i] > monster2X &&
+    if (kogelsX[i] > monster4X &&
     kogelsX[i] < monster4X + 37 &&
     kogelsY[i] > monster4Y - 20 &&
     kogelsY[i] < monster4Y + 50 )
 
      {
-      console.log ("geraakt!!");
+       
+      console.log ("monster4geraakt!!");
+       score1X=score1X+1;
       return true
        }
   }
@@ -1092,17 +1138,18 @@ for(var i = 0; i < kogelsX.length; i++) {
 
 
   for(var i = 0; i < kogelsX.length; i++) {
-    if (kogelsX[i] > monster2X &&
+    if (kogelsX[i] > monster5X &&
     kogelsX[i] < monster5X + 37 &&
     kogelsY[i] > monster5Y - 20 &&
     kogelsY[i] < monster5Y + 50 )
 
      {
-      console.log ("geraakt!!");
+      console.log ("monster5geraakt!!");
+       score1X=score1X+1;
       return true
        }
+      
   }
-
 
 
 
@@ -1117,6 +1164,26 @@ for(var i = 0; i < kogelsX.length; i++) {
  * @returns {boolean} true als speler is geraakt
  */
 var checkSpelerGeraakt = function() {
+
+  if(spelerX-vijandY===0 && spelerX-vijandX===0){
+
+       textSize(100);
+    fill("white")
+    text("GAMEOVER",380,400)
+    textSize(50);
+    fill("lightgreen")
+    text("player 1 LOSE",480,480)
+    return true; spelStatus=GAMEOVER;
+
+  } else {
+    return false;
+  }
+};
+
+    
+  
+
+
 
     
   
@@ -1133,14 +1200,24 @@ var checkSpelerGeraakt = function() {
 var checkGameOver = function() {
   
 
-   
-  
-  if (score >= 100) {
-    return true;
+     if (score1X >=  400) {
+       textSize(100);
+    fill("white")
+    text("GAMEOVER",380,400)
+    textSize(50);
+    fill("lightgreen")
+    text("player 1 WIN!",480,480)
+    return true; spelStatus=GAMEOVER;
+
   } else {
     return false;
   }
 };
+  
+  
+   
+  
+ 
 
 
 /**
@@ -1199,7 +1276,8 @@ tekenMonster3(monster3X,monster3Y);
       for (var i = 0; i < kogelsX.length; i++) {
         tekenKogel(kogelsX[i],kogelsY[i])
       };
-     
+     textSize(30)
+    text("Score: " + score1X, 90, 100, 700, 700);
       tekenSpeler(spelerX, spelerY);
 
     
@@ -1211,12 +1289,6 @@ tekenMonster3(monster3X,monster3Y);
       break;
 
 
-      case GAMEOVER:
-      fill("white")
-      textSize(40)
-      text("Reload to start again!!",400,450)
-      textSize(100)
-      text("Game Over", 400,400)
       
   }
 }
