@@ -28,16 +28,15 @@ Gemaakt door:
  20.achtergrond
 Basis: uitleg, spelen, afgaan en punten
 - [x] maak index.html, style.css en script.js met canvas
-- [ ] teken speler
-- [ ] beweeg speler
-- [ ] ... *(vul zelf aan)*
-- [ ] punten op scherm zetten
-- [ ] punten kunnen scoren
-- [ ] uitlegscherm
+- [x] teken speler
+- [x] ... *(vul zelf aan)*
+- [x] punten op scherm zetten
+- [x] punten kunnen scoren
+- [x] schip
 
 Uitbreiding: *bedenk iets, bijvoorbeeld meer tegenstanders*
-- [ ] *later uitwerken*
-- [ ] *later uitwerken*
+- [x] gaven kogels
+- [x] *twee schermen
 - [ ] *later uitwerken*
 
 Uitbreiding: *bedenk iets, bijvoorbeeld bewegende achtergrond*
